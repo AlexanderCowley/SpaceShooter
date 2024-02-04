@@ -5,7 +5,7 @@ public class CombatStat : ScriptableObject
     public delegate void OnValueChanged();
     public event OnValueChanged ValueChangedHandler;
 
-    [SerializeField] int statValue;
+    int statValue;
     [field: SerializeField] public int MinValue { get; private set; }
     [field: SerializeField] public int MaxValue { get; private set; }
 
@@ -15,7 +15,7 @@ public class CombatStat : ScriptableObject
         set
         {
             statValue = value;
-            statValue = Mathf.Clamp(statValue, MinValue, MaxValue);
+            statValue = statValue <= 0 ? 1 : Mathf.Clamp(statValue, MinValue, MaxValue);
             ValueChangedHandler?.Invoke();
         }
     }

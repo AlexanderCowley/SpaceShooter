@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   statValue: 10
-  minValue: 0
-  maxValue: 10
+  <MinValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 10
