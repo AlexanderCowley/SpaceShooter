@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5349514116496047754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d76df4c77d1f6e43b85dc63d221c5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NodeName: Float
+  NodeRect:
+    serializedVersion: 2
+    x: 160
+    y: 394
+    width: 150
+    height: 65
+  ParentGraph: {fileID: 11400000}
+  nodeType: 0
+  NodeValue: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db382e4d4081d34fb839bb390b544e1, type: 3}
+  m_Name: Indy
+  m_EditorClassIdentifier: 
+  GraphName: Indy
+  nodes:
+  - {fileID: 6126866347169966811}
+  - {fileID: -5349514116496047754}
+  - {fileID: 8470807755487446007}
+  - {fileID: 3173881136378307001}
+  selectedNode: {fileID: 6126866347169966811}
+  wantsConnection: 0
+  connectionNode: {fileID: 0}
+  showProperties: 1
+--- !u!114 &3173881136378307001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d76df4c77d1f6e43b85dc63d221c5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NodeName: Float
+  NodeRect:
+    serializedVersion: 2
+    x: 115
+    y: 259
+    width: 150
+    height: 65
+  ParentGraph: {fileID: 11400000}
+  nodeType: 0
+  NodeValue: 4
+--- !u!114 &6126866347169966811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d76df4c77d1f6e43b85dc63d221c5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NodeName: Float
+  NodeRect:
+    serializedVersion: 2
+    x: 83
+    y: 54
+    width: 150
+    height: 65
+  ParentGraph: {fileID: 11400000}
+  nodeType: 0
+  NodeValue: 5
+--- !u!114 &8470807755487446007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d56bdd6101dc1249ac7538cd9c82044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NodeName: Add
+  NodeRect:
+    serializedVersion: 2
+    x: 307
+    y: 121
+    width: 150
+    height: 65
+  ParentGraph: {fileID: 11400000}
+  nodeType: 1
+  NodeSum: 0
+  output:
+    isOccupied: 0
+  inputA:
+    isOccupied: 0
+    inputNode: {fileID: 0}
+  inputB:
+    isOccupied: 0
+    inputNode: {fileID: 0}
