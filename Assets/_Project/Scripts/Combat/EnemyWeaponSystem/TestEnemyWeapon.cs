@@ -17,6 +17,7 @@ public class TestEnemyWeapon : MonoBehaviour
             return;
 
         _canFire = false;
+        //Run fire logic from weapons here
         WeaponProjectile projectile = (WeaponProjectile)Instantiate(weaponData.WeaponProjectile,
             _projectileSpawnPoint.position, Quaternion.identity);
         projectile.Init(weaponData, this.transform);

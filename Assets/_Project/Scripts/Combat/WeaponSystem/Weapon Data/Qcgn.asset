@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73112ebed2b38f94c853a41614e3bdb6, type: 3}
-  m_Name: MachineGun
+  m_Name: Qcgn
   m_EditorClassIdentifier: 
-  baseDamage: 3
-  fireRate: 0.55
-  travelSpeedInSeconds: 10
-  projectile: {fileID: 2599668306963967135, guid: 717c9438c37b8974ba326937c36c1d2f, type: 3}
+  baseDamage: 0
+  fireRate: 0
+  travelSpeedInSeconds: 0
+  projectile: {fileID: 0}
