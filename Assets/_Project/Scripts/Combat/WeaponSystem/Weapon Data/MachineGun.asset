@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MachineGun
   m_EditorClassIdentifier: 
   baseDamage: 3
-  fireRate: 0.25
-  travelSpeedInSeconds: 5
+  fireRate: 0.55
+  travelSpeedInSeconds: 10
   projectile: {fileID: 2599668306963967135, guid: 717c9438c37b8974ba326937c36c1d2f, type: 3}

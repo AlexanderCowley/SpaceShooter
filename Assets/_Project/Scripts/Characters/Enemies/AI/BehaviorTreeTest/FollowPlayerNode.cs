@@ -14,7 +14,9 @@ public class FollowPlayerNode : Node
     public override NodeStatus Evaluate()
     {
         Transform target = (Transform)Parent.GetData("target");
-        _transform.position = Vector2.MoveTowards(_transform.position, target.position, Time.deltaTime * Range);
+        Vector2 newTarget = new(target.position.x, _transform.position.y);
+        _transform.position = Vector2.MoveTowards(_transform.position, newTarget, 
+        Time.deltaTime * Range);
 
         _nodeStatus = NodeStatus.RUNNING;
         return _nodeStatus;
