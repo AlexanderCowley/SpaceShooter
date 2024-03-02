@@ -33,7 +33,7 @@ public class Move : MonoBehaviour
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
         
-        _movementVector = new Vector3(inputVector.x, inputVector.y, 0).normalized;
+        _movementVector = new Vector3(inputVector.x, 0, inputVector.y).normalized;
         _movementVector = Vector3.ClampMagnitude(_movementVector, 1);
     }
 
