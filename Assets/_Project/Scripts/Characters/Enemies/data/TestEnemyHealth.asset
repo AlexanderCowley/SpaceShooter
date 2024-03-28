@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9313b333179473341bc72d08759bb961, type: 3}
   m_Name: TestEnemyHealth
   m_EditorClassIdentifier: 
-  statValue: 10
-  minValue: 0
-  maxValue: 10
+  <MinValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 5

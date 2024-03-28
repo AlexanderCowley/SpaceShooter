@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.AI;
 public class EnemyAvoidance : MonoBehaviour
 {
     TestBehaviorTree _bt;
     TestBehaviorTree _enemyRight;
     TestBehaviorTree _enemyLeft;
-    Vector3 Dir;
     void Awake() 
     {
         _bt = GetComponentInParent<TestBehaviorTree>();

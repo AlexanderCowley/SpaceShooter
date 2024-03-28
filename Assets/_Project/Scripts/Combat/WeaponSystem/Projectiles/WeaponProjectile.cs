@@ -9,15 +9,15 @@ public class WeaponProjectile : MonoBehaviour
     IDamagable _damagable;
     Vector3 _direction;
 
-    CharacterController _holder;
+    Collider _holder;
 
     CancellationTokenSource _tokenSource = new CancellationTokenSource();
 
     public async void Init(WeaponData weaponData, Transform direction)
     {
-        this._damage = weaponData.BaseDamage;
-        this._speed = weaponData.ProjectileTravelSpeed;
-        this._direction = direction.up;
+        _damage = weaponData.BaseDamage;
+        _speed = weaponData.ProjectileTravelSpeed;
+        _direction = direction.up;
 
         IgnoreCharacterCollisions();
 
@@ -34,8 +34,8 @@ public class WeaponProjectile : MonoBehaviour
 
         void IgnoreCharacterCollisions()
         {
-            _holder = direction.GetComponentInParent<CharacterController>();
-            Physics.IgnoreCollision(_holder, this.GetComponent<Collider>());
+            if(direction.TryGetComponent<Collider>(out _holder))
+                Physics.IgnoreCollision(_holder, GetComponent<Collider>());
         }
     }
 
@@ -45,7 +45,7 @@ public class WeaponProjectile : MonoBehaviour
         _damagable = other.GetComponent<IDamagable>();
         _damagable?.TakeDamage(_damage);
         
-        Destroy(this.gameObject, 0.10f);
+        Destroy(gameObject, 0.10f);
     }
 
     void OnDisable()
@@ -61,7 +61,7 @@ public class WeaponProjectile : MonoBehaviour
         if (_tokenSource.IsCancellationRequested)
             return;
 
-        Destroy(this.gameObject, 0.15f);
+        Destroy(gameObject, 0.15f);
     }
 
     void Update() => transform.position += _direction * _speed * Time.deltaTime;
