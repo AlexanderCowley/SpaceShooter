@@ -10,8 +10,8 @@ public class FollowPlayerNode : Node
     float EnemySpeed;
     float _rangeOffset = 1.4f;
     float _prevX;
-    TestBehaviorTree _blockingEnemyRight;
-    TestBehaviorTree _blockingEnemyLeft;
+    ShieldBT _blockingEnemyRight;
+    ShieldBT _blockingEnemyLeft;
     bool isStopped = false;
     public FollowPlayerNode(Transform objectTransform, float range)
     {
@@ -109,7 +109,7 @@ public class FollowPlayerNode : Node
     }
 
     public void MoveEnemy() => isStopped = false;
-    public void AssignBlockEnemy(TestBehaviorTree enemy, bool isRight)
+    public void AssignBlockEnemy(ShieldBT enemy, bool isRight)
     {
         if(isRight) _blockingEnemyRight = enemy;
         else _blockingEnemyLeft = enemy;

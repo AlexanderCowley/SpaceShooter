@@ -1,19 +1,19 @@
 using UnityEngine;
 public class EnemyAvoidance : MonoBehaviour
 {
-    TestBehaviorTree _bt;
-    TestBehaviorTree _enemyRight;
-    TestBehaviorTree _enemyLeft;
+    ShieldBT _bt;
+    ShieldBT _enemyRight;
+    ShieldBT _enemyLeft;
     void Awake() 
     {
-        _bt = GetComponentInParent<TestBehaviorTree>();
+        _bt = GetComponentInParent<ShieldBT>();
     }
 
     void OnTriggerEnter(Collider other) 
     {
         if(other.transform.parent is null) return;
         if(other.transform.parent.gameObject.
-        TryGetComponent<TestBehaviorTree>(out TestBehaviorTree _enemy))
+        TryGetComponent<ShieldBT>(out ShieldBT _enemy))
         {
             if(_enemyRight == null)
             {
