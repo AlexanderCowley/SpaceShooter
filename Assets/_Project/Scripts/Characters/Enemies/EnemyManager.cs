@@ -16,8 +16,8 @@ public class EnemyManager: MonoBehaviour
     [SerializeField] float _posOffset;
 
     //list of active enemies
-    //Turn into 2 dimensional array
     [SerializeField] List<ShieldBT> ActiveEnemies = new();
+    float col;
 
     void InitEnemies()
     {
@@ -27,10 +27,16 @@ public class EnemyManager: MonoBehaviour
     void SpawnEnemies()
     {
         ShieldBT enemyInstance;
+        col = 2.5f;
         for(int i = 0; i < ActiveEnemies.Count; i++)
         {
+            //Replace with functions that just add and remove enemies at will
+            if(i % 4 == 0)
+            {
+                col += i/col * 0.8f;
+            }
             enemyInstance = Instantiate(ActiveEnemies[i], 
-                new Vector3(i * _posOffset,2.5f,2.15f), Quaternion.identity)
+                new Vector3(i * _posOffset, 2.5f, col), Quaternion.identity)
                 .GetComponent<ShieldBT>();
             enemyInstance.SetPlayer(_playerTransform);
         }
