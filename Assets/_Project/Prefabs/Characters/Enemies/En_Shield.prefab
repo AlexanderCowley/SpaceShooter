@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 7884511097386061051}
   - component: {fileID: 7006925549509721692}
   m_Layer: 0
-  m_Name: Test Enemy
+  m_Name: En_Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,7 +340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 0}
   Range: 2
-  _testEnemy: {fileID: 8820887268953773289}
 --- !u!114 &2191107991683427953
 MonoBehaviour:
   m_ObjectHideFlags: 0

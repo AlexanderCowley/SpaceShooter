@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using BehaviorTree;
-public class ShieldBT : BehaviorTree.Tree
+public class ShieldBT : EnBT
 {
-    [SerializeField] Transform _playerTransform;
     [SerializeField] float Range;
     FollowPlayerNode _followPlayerNode;
     protected override Node SetUpTree()
@@ -18,6 +17,4 @@ public class ShieldBT : BehaviorTree.Tree
     }
     public void AssignEnemy(ShieldBT enemy, bool isRight) =>
         _followPlayerNode.AssignBlockEnemy(enemy, isRight);
-
-    public void SetPlayer(Transform playerTrans) => _playerTransform = playerTrans;
 }
