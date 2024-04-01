@@ -45,7 +45,7 @@ public class SubWeapon : MonoBehaviour
 
         WeaponProjectile projectile = (WeaponProjectile)Instantiate(_data.WeaponProjectile,
             _projectileSpawnPoint.position, Quaternion.identity);
-        projectile.Init(_data, this.transform);
+        projectile.Init(_data, transform, CharacterType.Player);
 
         _heatCost?.OnHeatUse(HeatCost);
 
