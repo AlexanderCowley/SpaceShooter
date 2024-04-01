@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using System.Threading;
-using System.Threading.Tasks;
 
 public class RangedWeapon : MonoBehaviour
 {
@@ -41,7 +39,7 @@ public class RangedWeapon : MonoBehaviour
 
         WeaponProjectile projectile = (WeaponProjectile)Instantiate(_data.WeaponProjectile,
             _projectileSpawnPoint.position, Quaternion.identity);
-        projectile.Init(_data, this.transform);
+        projectile.Init(_data, transform, CharacterType.Player);
 
         StartCoroutine(FireRateDelay());
     }

@@ -5,6 +5,7 @@ public class CombatHealth : MonoBehaviour, IDamagable
     //plain c#?
     //inject data from stat holder
     [SerializeField] CombatStat healthStat;
+    public CharacterType CharType = CharacterType.None;
 
     public delegate void OnDeath();
     public event OnDeath DeathEventHandler;

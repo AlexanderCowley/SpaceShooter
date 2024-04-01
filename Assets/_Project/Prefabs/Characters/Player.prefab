@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthStat: {fileID: 11400000, guid: b904432a4eb4c2b4db1e58a4b499fc98, type: 2}
+  CharType: 1
 --- !u!114 &4300667637331021335
 MonoBehaviour:
   m_ObjectHideFlags: 0

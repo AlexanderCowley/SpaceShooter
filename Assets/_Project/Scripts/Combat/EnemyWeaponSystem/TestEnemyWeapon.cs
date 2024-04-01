@@ -20,7 +20,7 @@ public class TestEnemyWeapon : MonoBehaviour
         //Run fire logic from weapons here
         WeaponProjectile projectile = (WeaponProjectile)Instantiate(weaponData.WeaponProjectile,
             _projectileSpawnPoint.position, Quaternion.identity);
-        projectile.Init(weaponData, this.transform);
+        projectile.Init(weaponData, transform, CharacterType.Enemy);
         StartCoroutine(FireRateDelay());
     }
 

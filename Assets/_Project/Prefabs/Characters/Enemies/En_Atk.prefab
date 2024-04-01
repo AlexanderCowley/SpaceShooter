@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5df5ff08e718f34aac79a3c01298351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 2f9af086048496c4aaa93b644531c511, type: 2}
+  weaponData: {fileID: 11400000, guid: a8b8eb252b8d9504eb4a891a5fde6469, type: 2}
   _projectileSpawnPoint: {fileID: 8986492559515408102}
 --- !u!1 &1741126939063310332
 GameObject:
@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthStat: {fileID: 11400000, guid: 322e509113b3007468f0f1c09d67be56, type: 2}
+  CharType: 2
 --- !u!114 &8224078993669053678
 MonoBehaviour:
   m_ObjectHideFlags: 0

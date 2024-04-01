@@ -6,20 +6,17 @@ public class WeaponProjectile : MonoBehaviour
 {
     int _damage;
     float _speed;
-    IDamagable _damagable;
     Vector3 _direction;
-
-    Collider _holder;
-
     CancellationTokenSource _tokenSource = new CancellationTokenSource();
+    CharacterType _charType = CharacterType.None;
 
-    public async void Init(WeaponData weaponData, Transform direction)
+    public async void Init(WeaponData weaponData, 
+        Transform direction, CharacterType charType)
     {
         _damage = weaponData.BaseDamage;
         _speed = weaponData.ProjectileTravelSpeed;
         _direction = direction.up;
-
-        IgnoreCharacterCollisions();
+        _charType = charType;
 
         var countDownTask = CountDown(2500);
 
@@ -31,21 +28,20 @@ public class WeaponProjectile : MonoBehaviour
         {
             countDownTask = null;
         }
-
-        void IgnoreCharacterCollisions()
-        {
-            if(direction.TryGetComponent<Collider>(out _holder))
-                Physics.IgnoreCollision(_holder, GetComponent<Collider>());
-        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        _tokenSource.Cancel();
-        _damagable = other.GetComponent<IDamagable>();
-        _damagable?.TakeDamage(_damage);
-        
-        Destroy(gameObject, 0.10f);
+        if(other.TryGetComponent<CombatHealth>(out CombatHealth health))
+        {
+            //Prevents enemies from damaging each other
+            if(_charType == health.CharType)
+                return;
+            
+            _tokenSource.Cancel();
+            health.TakeDamage(_damage);
+            Destroy(gameObject, 0.10f);
+        }
     }
 
     void OnDisable()

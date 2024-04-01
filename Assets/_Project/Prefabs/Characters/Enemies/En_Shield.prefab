@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthStat: {fileID: 11400000, guid: 322e509113b3007468f0f1c09d67be56, type: 2}
+  CharType: 2
 --- !u!114 &3144469157933240871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bd00256606f5c4ca325bb0f944c82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 0}
   Range: 2
 --- !u!114 &2191107991683427953
 MonoBehaviour:
