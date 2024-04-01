@@ -15,6 +15,6 @@ public class ShieldBT : EnBT
         });
         return root;
     }
-    public void AssignEnemy(ShieldBT enemy, bool isRight) =>
+    public override void AssignEnemy(EnBT enemy, bool isRight) =>
         _followPlayerNode.AssignBlockEnemy(enemy, isRight);
 }

@@ -1,19 +1,18 @@
 using UnityEngine;
 public class EnemyAvoidance : MonoBehaviour
 {
-    ShieldBT _bt;
-    ShieldBT _enemyRight;
-    ShieldBT _enemyLeft;
+    EnBT _bt;
+    EnBT _enemyRight;
+    EnBT _enemyLeft;
     void Awake() 
     {
-        _bt = GetComponentInParent<ShieldBT>();
+        _bt = GetComponent<EnBT>();
     }
 
     void OnTriggerEnter(Collider other) 
     {
-        if(other.transform.parent is null) return;
-        if(other.transform.parent.gameObject.
-        TryGetComponent<ShieldBT>(out ShieldBT _enemy))
+        if(other.transform.TryGetComponent
+            <EnBT>(out EnBT _enemy))
         {
             if(_enemyRight == null)
             {
@@ -21,6 +20,7 @@ public class EnemyAvoidance : MonoBehaviour
                 {
                     _enemyRight = _enemy;
                     _bt.AssignEnemy(_enemyRight, true);
+                    return;
                 }
             }
             if(_enemyLeft == null)
@@ -29,6 +29,7 @@ public class EnemyAvoidance : MonoBehaviour
                 {
                     _enemyLeft = _enemy;
                     _bt.AssignEnemy(_enemyLeft, false);
+                    return;
                 }
             }
         }

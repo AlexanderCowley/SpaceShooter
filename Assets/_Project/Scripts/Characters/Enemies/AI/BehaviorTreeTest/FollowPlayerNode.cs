@@ -1,17 +1,14 @@
 using UnityEngine;
 using BehaviorTree;
-using UnityEngine.AI;
-using DG.Tweening;
-using System.IO.Compression;
 
 public class FollowPlayerNode : Node
 {
     Transform _transform;
     float EnemySpeed;
-    float _rangeOffset = 1.4f;
+    float _rangeOffset = 3.4f;
     float _prevX;
-    ShieldBT _blockingEnemyRight;
-    ShieldBT _blockingEnemyLeft;
+    EnBT _blockingEnemyRight;
+    EnBT _blockingEnemyLeft;
     bool isStopped = false;
     public FollowPlayerNode(Transform objectTransform, float range)
     {
@@ -109,7 +106,7 @@ public class FollowPlayerNode : Node
     }
 
     public void MoveEnemy() => isStopped = false;
-    public void AssignBlockEnemy(ShieldBT enemy, bool isRight)
+    public void AssignBlockEnemy(EnBT enemy, bool isRight)
     {
         if(isRight) _blockingEnemyRight = enemy;
         else _blockingEnemyLeft = enemy;

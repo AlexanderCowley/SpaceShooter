@@ -10,4 +10,5 @@ public class EnBT : BehaviorTree.Tree
         throw new System.NotImplementedException();
     }
     public void SetPlayer(Transform playerTrans) => _playerTransform = playerTrans;
+    public virtual void AssignEnemy(EnBT enemy, bool isRight){}
 }
