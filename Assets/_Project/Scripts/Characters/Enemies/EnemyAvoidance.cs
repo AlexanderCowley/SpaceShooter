@@ -1,21 +1,18 @@
 using UnityEngine;
-using UnityEngine.AI;
 public class EnemyAvoidance : MonoBehaviour
 {
-    TestBehaviorTree _bt;
-    TestBehaviorTree _enemyRight;
-    TestBehaviorTree _enemyLeft;
-    Vector3 Dir;
+    EnBT _bt;
+    EnBT _enemyRight;
+    EnBT _enemyLeft;
     void Awake() 
     {
-        _bt = GetComponentInParent<TestBehaviorTree>();
+        _bt = GetComponent<EnBT>();
     }
 
     void OnTriggerEnter(Collider other) 
     {
-        if(other.transform.parent is null) return;
-        if(other.transform.parent.gameObject.
-        TryGetComponent<TestBehaviorTree>(out TestBehaviorTree _enemy))
+        if(other.transform.TryGetComponent
+            <EnBT>(out EnBT _enemy))
         {
             if(_enemyRight == null)
             {
@@ -23,6 +20,7 @@ public class EnemyAvoidance : MonoBehaviour
                 {
                     _enemyRight = _enemy;
                     _bt.AssignEnemy(_enemyRight, true);
+                    return;
                 }
             }
             if(_enemyLeft == null)
@@ -31,6 +29,7 @@ public class EnemyAvoidance : MonoBehaviour
                 {
                     _enemyLeft = _enemy;
                     _bt.AssignEnemy(_enemyLeft, false);
+                    return;
                 }
             }
         }

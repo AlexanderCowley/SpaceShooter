@@ -15,7 +15,7 @@ public class CombatStat : ScriptableObject
         set
         {
             statValue = value;
-            statValue = statValue <= 0 ? 1 : Mathf.Clamp(statValue, MinValue, MaxValue);
+            statValue = Mathf.Clamp(statValue, MinValue, MaxValue);
             ValueChangedHandler?.Invoke();
         }
     }
