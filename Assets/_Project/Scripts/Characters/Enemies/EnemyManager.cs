@@ -1,4 +1,4 @@
-using System.Collections;
+using Random = System.Random;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +18,10 @@ public class EnemyManager: MonoBehaviour
     //list of active enemies
     [SerializeField] List<EnBT> ActiveEnemies = new();
     float col;
+    int _enemyCount = 0;
+    //Enemy Prefabs
+    [SerializeField] EnBT[] EnemyTypes = new EnBT[2];
+    Random randInstance = new Random();
 
     void InitEnemies()
     {
@@ -28,6 +32,7 @@ public class EnemyManager: MonoBehaviour
     {
         EnBT enemyInstance;
         col = 2.5f;
+        _enemyCount = ActiveEnemies.Count;
         for(int i = 0; i < ActiveEnemies.Count; i++)
         {
             //Replace with functions that just add and remove enemies at will
@@ -38,8 +43,45 @@ public class EnemyManager: MonoBehaviour
             enemyInstance = Instantiate(ActiveEnemies[i], 
                 new Vector3(i * _posOffset, 2.5f, col), Quaternion.identity)
                 .GetComponent<EnBT>();
+            //Enemy Refs set
+            //Set player transform
             enemyInstance.SetPlayer(_playerTransform);
+            //Set event for enemy death
+            enemyInstance.GetComponent<CombatHealth>()
+                .DeathEventHandler += UpdateEnemyCount;
+            //Remove enemy from list
+            ActiveEnemies.Remove(enemyInstance);
         }
+    }
+
+    void UpdateEnemyCount()
+    {
+        _enemyCount -= 1;
+        if(_enemyCount <= 0) 
+            NextWave();
+    }
+
+    public void NextWave()
+    {
+        
+        //Increments wave count
+        EnemyWaves.NextWave();
+        //Generate a new list of enemies
+        for(int i = 0; i < 6; i++)
+        {
+            ActiveEnemies[i] = EnemyTypes[GenerateRandEnemyIndex()];
+        }
+        
+        int GenerateRandEnemyIndex()
+        {
+            if(EnemyTypes.Length < 0)
+            {
+                return 0;
+            }
+            return randInstance.Next(0, EnemyTypes.Length);
+        }
+        SpawnEnemies();
+
     }
 
     void Awake() 
