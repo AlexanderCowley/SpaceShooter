@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bd00256606f5c4ca325bb0f944c82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyScore>k__BackingField: {fileID: 11400000, guid: 4ca711ed72824b04c875e7b611d57c2f, type: 2}
   Range: 2
 --- !u!114 &2191107991683427953
 MonoBehaviour:
