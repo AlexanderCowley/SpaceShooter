@@ -48,17 +48,23 @@ public class EnemyManager: MonoBehaviour
             enemyInstance.SetPlayer(_playerTransform);
             //Set event for enemy death
             enemyInstance.GetComponent<CombatHealth>()
-                .DeathEventHandler += UpdateEnemyCount;
+                .DeathEventHandler += OnEnemyDeath;
             //Remove enemy from list
             ActiveEnemies.Remove(enemyInstance);
         }
     }
 
-    void UpdateEnemyCount()
+    void OnEnemyDeath(EnBT enemyInstance)
     {
-        _enemyCount -= 1;
-        if(_enemyCount <= 0) 
-            NextWave();
+        LevelScore.Instance.AddScore(enemyInstance.EnemyScore.Score);
+        UpdateEnemyCount();
+
+        void UpdateEnemyCount()
+        {
+            _enemyCount -= 1;
+            if(_enemyCount <= 0) 
+                NextWave();
+        }
     }
 
     public void NextWave()
