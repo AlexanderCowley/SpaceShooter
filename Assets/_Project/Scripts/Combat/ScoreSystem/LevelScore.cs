@@ -19,7 +19,6 @@ public class LevelScore : MonoBehaviour
     public void AddScore(int newScore)
     {
         Score += newScore;
-        Debug.Log("Invoke Event");
         ScoreChangeEvent.Invoke();
     }
 
