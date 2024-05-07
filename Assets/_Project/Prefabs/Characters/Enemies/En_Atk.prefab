@@ -143,9 +143,9 @@ GameObject:
   - component: {fileID: 5157275173406944154}
   - component: {fileID: 6392353175424595910}
   - component: {fileID: 6619710590991242029}
-  - component: {fileID: 8224078993669053678}
   - component: {fileID: 979910077655085710}
   - component: {fileID: 2937371438999607840}
+  - component: {fileID: 7615498875078046382}
   - component: {fileID: 1233417864662111356}
   - component: {fileID: 3706853544039638837}
   m_Layer: 0
@@ -200,18 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthStat: {fileID: 11400000, guid: 322e509113b3007468f0f1c09d67be56, type: 2}
   CharType: 2
---- !u!114 &8224078993669053678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3416960701224538713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6644038971572aa42ba9acad37f492cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &979910077655085710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +225,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnemyScore>k__BackingField: {fileID: 11400000, guid: a9181b20624868348885dacd8a0ae789, type: 2}
+--- !u!114 &7615498875078046382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3416960701224538713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106980e8ff3cd6546bf9b7e84e9512a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &1233417864662111356
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 [RequireComponent(typeof(CombatHealth))]
-public class CharacterDeath : MonoBehaviour
+public class EnemyDeath : MonoBehaviour
 {
     CombatHealth _combatHealth;
     void Awake()
