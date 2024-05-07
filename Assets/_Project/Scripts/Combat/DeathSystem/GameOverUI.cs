@@ -12,6 +12,6 @@ public class GameOverUI : MonoBehaviour
 
     void OnEnable()
     {
-        _gameOverText.text = $"GAME OVER \n\nScore: {LevelScore.Score}";
+        _gameOverText.text = $"GAME OVER \n\n   Score: {LevelScore.Score}";
     }
 }
