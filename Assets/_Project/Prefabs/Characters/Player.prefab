@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1745791217880593815
 Transform:
   m_ObjectHideFlags: 0
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 2263230476021888853}
   - component: {fileID: 3251805724359800707}
   - component: {fileID: 4300667637331021335}
+  - component: {fileID: 4075801552365049682}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -339,7 +340,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9117189216360238288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3f56baa5022894980fa0ed4824231b, type: 3}
   m_Name: 
@@ -498,3 +499,15 @@ MonoBehaviour:
   incrementPerTic: 3
   delayBeforeRegen: 1.5
   tic: 0.75
+--- !u!114 &4075801552365049682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117189216360238288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48faf2a09df6f9f4e86e1831b79c3ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

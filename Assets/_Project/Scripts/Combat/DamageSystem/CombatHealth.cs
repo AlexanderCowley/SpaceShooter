@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class CombatHealth : MonoBehaviour, IDamagable
 {
-    //plain c#?
-    //inject data from stat holder
     [SerializeField] CombatStat healthStat;
     public CharacterType CharType = CharacterType.None;
     EnBT BT;
 
     public delegate void OnDeath(EnBT enBT);
+    public delegate void OnPlayerDeath();
     public event OnDeath DeathEventHandler;
+    public static event OnPlayerDeath PlayerDeathHandler;
+
 
     void Awake() 
     {
@@ -19,9 +20,14 @@ public class CombatHealth : MonoBehaviour, IDamagable
     public void TakeDamage(int damageTaken)
     {
         healthStat.StatValue -= damageTaken;
+        if(healthStat.StatValue <= 0)
+        {
+            if (BT != null)
+                DeathEventHandler?.Invoke(BT);
+            else
+                PlayerDeathHandler?.Invoke();
 
-        if (healthStat.StatValue == 0)
-            DeathEventHandler?.Invoke(BT);
+        }
         //Replace with CalculateDamageTaken(damageTaken)
     }
 
