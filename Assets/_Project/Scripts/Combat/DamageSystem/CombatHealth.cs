@@ -3,6 +3,8 @@ using UnityEngine;
 public class CombatHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] CombatStat healthStat;
+    [Header("Debug Settings")]
+    [SerializeField] bool IsInvincible;
     public CharacterType CharType = CharacterType.None;
     EnBT BT;
 
@@ -19,6 +21,9 @@ public class CombatHealth : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damageTaken)
     {
+        //For debugging
+        if(IsInvincible) return;
+        
         healthStat.StatValue -= damageTaken;
         if(healthStat.StatValue <= 0)
         {
