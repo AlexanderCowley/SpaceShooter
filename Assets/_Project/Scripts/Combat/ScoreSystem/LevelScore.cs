@@ -14,6 +14,8 @@ public class LevelScore : MonoBehaviour
         {
             Instance = this;
         }
+        //Resets score on scene load
+        Score = 0;
     }
 
     public void AddScore(int newScore)

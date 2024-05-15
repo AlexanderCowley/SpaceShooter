@@ -12,6 +12,11 @@ public class StatBar : MonoBehaviour
         combatStat.ValueChangedHandler += UpdateBar;
     }
 
+    void OnDisable()
+    {
+        combatStat.ValueChangedHandler -= UpdateBar;
+    }
+
     void UpdateBar()
     {
         _image.fillAmount = Mathf.Clamp

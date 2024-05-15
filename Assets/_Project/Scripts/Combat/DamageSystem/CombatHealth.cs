@@ -3,9 +3,9 @@ using UnityEngine;
 public class CombatHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] CombatStat healthStat;
+    public CharacterType CharType = CharacterType.None;
     [Header("Debug Settings")]
     [SerializeField] bool IsInvincible;
-    public CharacterType CharType = CharacterType.None;
     EnBT BT;
 
     public delegate void OnDeath(EnBT enBT);
@@ -17,6 +17,8 @@ public class CombatHealth : MonoBehaviour, IDamagable
     void Awake() 
     {
         BT = GetComponent<EnBT>();
+        //Resets health
+        healthStat.StatValue = healthStat.MaxValue;
     }
 
     public void TakeDamage(int damageTaken)
