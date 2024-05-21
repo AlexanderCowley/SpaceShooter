@@ -8,8 +8,7 @@ public class SceneController : MonoBehaviour
         int currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(++currentBuildIndex);
     }
-
-    public static void GoToShop() => SceneManager.LoadScene(0);
+    public static void GoToMainMenu() => SceneManager.LoadScene(0);
     public static void GoToTestScene() => SceneManager.LoadScene(1);
-    public static void GoToMainMenu() => SceneManager.LoadScene(2);
+    public static void QuitToDesktop() => Application.Quit();
 }

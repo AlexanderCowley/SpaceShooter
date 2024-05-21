@@ -8,25 +8,14 @@ public class MenuController : MonoBehaviour
     Button SelectedButton;
     int _buttonCount;
     int _currentIndex = 0;
-    void Awake() 
+    void Awake()
     {
+        Debug.Log("Awake");
         _buttons = GetComponentsInChildren<Button>();
         _buttonCount = _buttons.Length;
-        //Highlight new game
+        //Highlight First Button
         SelectedButton = _buttons[0];
         SelectedButton.Select();
-    }
-
-    void OnEnable() 
-    {
-        _buttons[0].onClick.AddListener(SceneController.GoToTestScene);
-        _buttons[2].onClick.AddListener(Application.Quit);
-    }
-
-    void OnDisable() 
-    {
-        _buttons[0].onClick.RemoveListener(SceneController.GoToTestScene);
-        _buttons[2].onClick.RemoveListener(Application.Quit);
     }
 
     void NextButton()
@@ -43,17 +32,8 @@ public class MenuController : MonoBehaviour
         SelectedButton.Select();
     }
 
-    void EnterSelection()
-    {
-
-    }
-
     void Update()
     {
-        if(Keyboard.current.enterKey.wasPressedThisFrame)
-        {
-            SelectedButton.onClick?.Invoke();
-        }
         if(Keyboard.current.upArrowKey.wasPressedThisFrame)
         {
             NextButton();
