@@ -10,7 +10,6 @@ public class MenuController : MonoBehaviour
     int _currentIndex = 0;
     void Awake()
     {
-        Debug.Log("Awake");
         _buttons = GetComponentsInChildren<Button>();
         _buttonCount = _buttons.Length;
         //Highlight First Button
