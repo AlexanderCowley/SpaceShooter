@@ -9,6 +9,8 @@ public class EnemyWaves : MonoBehaviour
     void Awake()
     {
         //Read from file
+        //Reset wave count on load
+        EnWave = 0;
     }
 
     public static void NextWave()
