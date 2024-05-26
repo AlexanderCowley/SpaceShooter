@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class BullBT : EnBT
 {
+    [SerializeField] float Speed;
     protected override Node SetUpTree()
     {
         Node root = new SequenceNode(new List<Node>()
         {
-            //new AttackNode(transform)
+            new SearchNode(transform),
+            new RamNode(transform, Speed)
         });
         return root;
     }
