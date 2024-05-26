@@ -10,10 +10,10 @@ public class FollowPlayerNode : Node
     EnBT _blockingEnemyLeft;
 
     bool isStopped = false;
-    public FollowPlayerNode(Transform objectTransform, float range)
+    public FollowPlayerNode(Transform objectTransform, float enemySpeed)
     {
         _transform = objectTransform;
-        EnemySpeed = range;
+        EnemySpeed = enemySpeed;
     }
 
     public override NodeStatus Evaluate()
