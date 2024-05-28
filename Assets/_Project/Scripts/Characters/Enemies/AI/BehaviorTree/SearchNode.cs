@@ -8,6 +8,7 @@ public class SearchNode : Node
     //Raycast
     EnBT _enemyInFront;
     Transform _transform;
+    bool _playerDetected = false;
     public SearchNode(Transform transform)
     {
         _transform = transform;
@@ -15,14 +16,26 @@ public class SearchNode : Node
 
     public override NodeStatus Evaluate()
     {
-        if(Physics.Raycast(_transform.position, _transform.forward, out RaycastHit hit))
+        //Debug.DrawRay(_transform.position, 
+            //_transform.forward * 10f, Color.red);
+        if(_playerDetected) return NodeStatus.RUNNING;
+
+        if(Physics.Raycast(_transform.position, _transform.forward * -1, out RaycastHit hit))
         {
-            _enemyInFront = hit.transform.GetComponent<EnBT>();
-            if(_enemyInFront != null)
+            EnBT frontEnemy = hit.transform.GetComponent<EnBT>();
+            Move temp = hit.transform.GetComponent<Move>();
+            
+            if(frontEnemy == null)
             {
-                return NodeStatus.SUCCESS;
+                if(temp != null)
+                {
+                    Debug.Log(temp);
+                    _playerDetected = true;
+                    return NodeStatus.SUCCESS;
+                }
+                return NodeStatus.FAILURE;
             }
         }
-        return NodeStatus.RUNNING;
+        return NodeStatus.FAILURE;
     }
 }
