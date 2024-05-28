@@ -5,7 +5,7 @@ using BehaviorTree;
 public class SearchNode : Node
 {
     //Detect if another enemy is in front of them
-    //Raycast
+    //Kill enemy post charge
     EnBT _enemyInFront;
     Transform _transform;
     bool _playerDetected = false;
@@ -29,8 +29,8 @@ public class SearchNode : Node
             {
                 if(temp != null)
                 {
-                    Debug.Log(temp);
                     _playerDetected = true;
+                    Object.Destroy(_transform.gameObject, 0.8f);
                     return NodeStatus.SUCCESS;
                 }
                 return NodeStatus.FAILURE;
