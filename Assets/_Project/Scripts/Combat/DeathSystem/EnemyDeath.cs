@@ -9,7 +9,7 @@ public class EnemyDeath : MonoBehaviour
         _combatHealth.DeathEventHandler += KillCharacter;
     }
 
-    void KillCharacter(EnBT enemyInstance)
+    protected virtual void KillCharacter(EnBT enemyInstance)
     {
         Destroy(gameObject, 0.25f);
     }

@@ -10,7 +10,7 @@ public class AttackNode : Node
     TestEnemyWeapon _weapon;
     public AttackNode(Transform self)
     {
-        this._self = self;
+        _self = self;
     }
 
     public override NodeStatus Evaluate()

@@ -315,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthStat: {fileID: 11400000, guid: 322e509113b3007468f0f1c09d67be56, type: 2}
   CharType: 2
+  IsInvincible: 0
 --- !u!114 &8820887268953773289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +373,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.12251061
+  m_Radius: 0.11
   m_Center: {x: 0.0046378495, y: 0, z: -0.026591647}
 --- !u!54 &7006925549509721692
 Rigidbody:
