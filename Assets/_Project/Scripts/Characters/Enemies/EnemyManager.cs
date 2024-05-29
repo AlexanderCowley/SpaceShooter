@@ -51,7 +51,7 @@ public class EnemyManager: MonoBehaviour
             {
                 health.DeathEventHandler += OnEnemyDeath;
             }
-
+            //Set event for bull enemy
             if(enemyInstance.TryGetComponent<BullDeath>(out BullDeath deathObj))
             {
                 deathObj.BullChargeHandler += OnEnemyDeath;
