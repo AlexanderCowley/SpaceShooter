@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpreadWeapon : BasicEnemyWeapon
 {
-    float _Offset = 0.4f;
+    float _Offset = 0.35f;
     public override void Fire()
     {
         if (!_canFire) 
@@ -15,10 +15,12 @@ public class SpreadWeapon : BasicEnemyWeapon
         for(int i = 0; i < 3; i++)
         {
             //Changing index to angle the projectiles
-            int index = (i + 1) * 45;
-            if(i>1) index = -1 * 45;
+            //i-1 (determines angle)
+            //-45 and -180 is so that they don't cross each other when firing
+            int index = ((i - 1) * -25) - 180;
             //Spawning the projectiles
-            WeaponProjectile projectile = (WeaponProjectile)Instantiate(weaponData.WeaponProjectile,
+            WeaponProjectile projectile = 
+                (WeaponProjectile)Instantiate(weaponData.WeaponProjectile,
                 new Vector3(_projectileSpawnPoint.position.x + ((i - 1) * _Offset),
                 _projectileSpawnPoint.position.y,
                 _projectileSpawnPoint.position.z),
