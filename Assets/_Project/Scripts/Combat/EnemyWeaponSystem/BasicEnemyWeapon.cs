@@ -18,7 +18,7 @@ public class BasicEnemyWeapon : MonoBehaviour
         _canFire = false;
         //Run fire logic from weapons here
         WeaponProjectile projectile = (WeaponProjectile)Instantiate(weaponData.WeaponProjectile,
-            _projectileSpawnPoint.position, Quaternion.identity);
+            _projectileSpawnPoint.position, Quaternion.Euler(0f, 180f, 0f));
         projectile.Init(weaponData, transform, CharacterType.Enemy);
         StartCoroutine(FireRateDelay());
     }

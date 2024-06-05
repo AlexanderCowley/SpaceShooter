@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpreadWeapon : BasicEnemyWeapon
 {
-    float _Offset = 0.3f;
+    float _Offset = 0.4f;
     public override void Fire()
     {
         if (!_canFire) 
@@ -14,11 +14,15 @@ public class SpreadWeapon : BasicEnemyWeapon
         //Run fire logic from weapons here
         for(int i = 0; i < 3; i++)
         {
+            //Changing index to angle the projectiles
+            int index = (i + 1) * 45;
+            if(i>1) index = -1 * 45;
+            //Spawning the projectiles
             WeaponProjectile projectile = (WeaponProjectile)Instantiate(weaponData.WeaponProjectile,
                 new Vector3(_projectileSpawnPoint.position.x + ((i - 1) * _Offset),
                 _projectileSpawnPoint.position.y,
                 _projectileSpawnPoint.position.z),
-                Quaternion.identity);
+                Quaternion.Euler(new Vector3(0f, index, 0f)));
             projectile.Init(weaponData, transform, CharacterType.Enemy);
         }
         StartCoroutine(FireRateDelay());
