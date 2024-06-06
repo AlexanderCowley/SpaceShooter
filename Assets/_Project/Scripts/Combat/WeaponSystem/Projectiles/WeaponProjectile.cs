@@ -60,5 +60,5 @@ public class WeaponProjectile : MonoBehaviour
         Destroy(gameObject, 0.15f);
     }
 
-    void Update() => transform.position += _direction * _speed * Time.deltaTime;
+    void Update() => transform.position += transform.forward * _speed * Time.deltaTime;
 }
