@@ -10,11 +10,12 @@ public class RamNode : Node
     Transform _transform;
     Vector3 _target;
     bool _chargeStarted = false;
-    
-    public RamNode(Transform transform, float enemySpeed, BullBT bt)
+    Hitbox _hitbox;
+    public RamNode(Transform transform, float enemySpeed, Hitbox hb)
     {
         _transform = transform;
         _enemySpeed = enemySpeed;
+        _hitbox = hb;
         //Set target to bottom of the screen
         _target = _transform.position + new Vector3(0f, 0f, -10f);
         _bullDeath = _transform.GetComponent<BullDeath>();

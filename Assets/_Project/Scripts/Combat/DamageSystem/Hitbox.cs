@@ -7,7 +7,7 @@ public class Hitbox : MonoBehaviour
     void OnTriggerEnter(Collider other) 
     {
         _health = other.GetComponent<CombatHealth>();
-        if(_health != null)
+        if(_health != null && _health.CharType == CharacterType.Player)
         {
             _health.TakeDamage(Damage);
         }
