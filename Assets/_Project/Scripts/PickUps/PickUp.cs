@@ -6,8 +6,8 @@ public class PickUp : MonoBehaviour
     public OnItemPickUp PickUpHandler;
     void OnTriggerEnter(Collider other)
     {
-        StatHolder temp;
-        if(other.TryGetComponent<StatHolder>(out temp))
+        CombatHealth temp;
+        if(other.TryGetComponent<CombatHealth>(out temp))
             PickUpHandler?.Invoke(other);
 
         DestroyPickUp();
