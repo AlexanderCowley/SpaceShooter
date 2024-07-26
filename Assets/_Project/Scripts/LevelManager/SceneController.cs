@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    void Awake() 
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public static void ChangeScene()
     {
         int currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
