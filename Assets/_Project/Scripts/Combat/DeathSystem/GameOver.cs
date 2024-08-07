@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
+    Canvas[] _canvasChildren;
     Canvas _gameOverCanvas;
 
     //Singleton
@@ -16,17 +17,32 @@ public class GameOver : MonoBehaviour
     {
         if(Instance != null && Instance != this)
         {
-            //Prevents nre by destroying the gameobject itself without losing the ref
-            Destroy(Instance.gameObject);
+            Destroy(this);
         }
         else
         {
             Instance = this;
             //Perserve Canvas parent object
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += SceneLoadHandler;
         }
-        _gameOverCanvas = transform.GetChild(4).GetComponent<Canvas>();
+        _canvasChildren = GetComponentsInChildren<Canvas>(true);
+        _gameOverCanvas = _canvasChildren[4];
         _gameOverCanvas.gameObject.SetActive(false);
+    }
+
+    public void SceneLoadHandler(Scene sceneData, LoadSceneMode mode)
+    {
+        _gameOverCanvas.gameObject.SetActive(false);
+        if(sceneData.name != "MainMenu")
+        {
+            return;
+        }
+        
+        for(int i = 0; i< _canvasChildren.Length; i++)
+        {
+            _canvasChildren[i].gameObject.SetActive(false);
+        }
     }
 
     void OnEnable()
