@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -12,6 +12,15 @@ public class MenuController : MonoBehaviour
     {
         _buttons = GetComponentsInChildren<Button>();
         _buttonCount = _buttons.Length;
+    }
+
+    void OnEnable() 
+    {
+        InitMenu();
+    }
+
+    void InitMenu()
+    {
         //Highlight First Button
         SelectedButton = _buttons[0];
         SelectedButton.Select();
@@ -29,18 +38,5 @@ public class MenuController : MonoBehaviour
         _currentIndex = (_currentIndex + 1) % _buttonCount;
         SelectedButton = _buttons[_currentIndex];
         SelectedButton.Select();
-    }
-
-    void Update()
-    {
-        if(Keyboard.current.upArrowKey.wasPressedThisFrame)
-        {
-            NextButton();
-        }
-
-        if (Keyboard.current.downArrowKey.wasPressedThisFrame)
-        {
-            PreviousButton();
-        }
     }
 }
