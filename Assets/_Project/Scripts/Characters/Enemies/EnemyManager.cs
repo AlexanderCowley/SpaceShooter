@@ -21,7 +21,7 @@ public class EnemyManager: MonoBehaviour
     int _enemyCount = 0;
     //Enemy Prefabs
     [SerializeField] EnBT[] EnemyTypes = new EnBT[2];
-    Random randInstance = new Random();
+    readonly Random randInstance = new Random();
 
     void InitEnemies()
     {
@@ -87,6 +87,7 @@ public class EnemyManager: MonoBehaviour
         
         int GenerateRandEnemyIndex()
         {
+            
             if(EnemyTypes.Length < 0)
             {
                 return 0;
@@ -97,7 +98,8 @@ public class EnemyManager: MonoBehaviour
 
     }
 
-    void Awake() 
+    //Changed from awake to start to ensure that EnemyWaves is initialized
+    void Start() 
     {
         if(Instance != null && Instance != this)
         {
@@ -106,7 +108,7 @@ public class EnemyManager: MonoBehaviour
         else
         {
             Instance = this;
-            SpawnEnemies();
+            NextWave();
         }
     }
 }
