@@ -46,15 +46,15 @@ public class EnemyManager: MonoBehaviour
             //Enemy Refs set
             //Set player transform
             enemyInstance.SetPlayer(_playerTransform);
-            //Set score and enemy count event for enemy death
-            if(enemyInstance.TryGetComponent<CombatHealth>(out CombatHealth health))
-            {
-                health.DeathEventHandler += OnEnemyDeath;
-            }
             //Set event for bull enemy
             if(enemyInstance.TryGetComponent<BullDeath>(out BullDeath deathObj))
             {
                 deathObj.BullChargeHandler += OnEnemyDeath;
+            }
+            //Set score and enemy count event for enemy death
+            else if(enemyInstance.TryGetComponent<CombatHealth>(out CombatHealth health))
+            {
+                health.DeathEventHandler += OnEnemyDeath;
             }
             //Remove enemy from list
             ActiveEnemies.Remove(enemyInstance);
