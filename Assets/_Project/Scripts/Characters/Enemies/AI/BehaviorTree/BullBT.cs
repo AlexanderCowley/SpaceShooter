@@ -9,14 +9,23 @@ public class BullBT : EnBT
     public delegate void OnBullCharge(EnBT instance);
     public OnBullCharge BullChargeHandler;
     Hitbox _hitbox;
+    Vector3 _halfBoxSize = new Vector3(0.4f, 0.1f, -5f);
     protected override Node SetUpTree()
     {
         _hitbox = GetComponent<Hitbox>();
         Node root = new SequenceNode(new List<Node>()
         {
-            new SearchNode(transform),
+            new SearchNode(transform, _halfBoxSize),
             new RamNode(transform, Speed, _hitbox)
         });
         return root;
     }
+    
+    #if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + transform.forward * -5f, _halfBoxSize*2);
+    }
+    #endif
 }
