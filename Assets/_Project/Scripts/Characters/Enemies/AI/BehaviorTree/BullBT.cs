@@ -9,7 +9,7 @@ public class BullBT : EnBT
     public delegate void OnBullCharge(EnBT instance);
     public OnBullCharge BullChargeHandler;
     Hitbox _hitbox;
-    Vector3 _halfBoxSize = new Vector3(0.4f, 0.1f, -5f);
+    Vector3 _halfBoxSize = new Vector3(0.4f, 0.5f, -5f);
     protected override Node SetUpTree()
     {
         _hitbox = GetComponent<Hitbox>();
@@ -20,12 +20,13 @@ public class BullBT : EnBT
         });
         return root;
     }
-    
+
     #if UNITY_EDITOR
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + transform.forward * -5f, _halfBoxSize*2);
+        Gizmos.DrawWireCube(transform.position + 
+            transform.forward * _halfBoxSize.z, _halfBoxSize*2);
     }
     #endif
 }

@@ -18,7 +18,8 @@ public class SearchNode : Node
     {     
         if(_playerDetected) return NodeStatus.RUNNING;
 
-        if(Physics.BoxCast(_transform.position, _halfBoxSize, _transform.forward * -1, out RaycastHit hit))
+        if(Physics.BoxCast(_transform.position + 
+            _transform.forward * _halfBoxSize.z, _halfBoxSize, _transform.forward * -1, out RaycastHit hit))
         {
             EnBT frontEnemy = hit.transform.GetComponent<EnBT>();
             Move temp = hit.transform.GetComponent<Move>();
